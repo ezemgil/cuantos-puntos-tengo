@@ -15,6 +15,28 @@ Este proyecto tiene la finalidad de simplificar este proceso, permitiendo a los 
  En caso de empate, gana el jugador que va de mano.
  Ejemplo: un 7 de copas pierde contra un 3 y un 1 de espadas (3+1+20=24 de envido).
 
+ ## Instalación
+Para instalar y ejecutar este proyecto localmente, sigue estos pasos:
+
+1. Clona el repositorio:
+    ```sh
+    git clone https://github.com/tu-usuario/tu-repositorio.git
+    ```
+2. Navega al directorio del proyecto:
+    ```sh
+    cd tu-repositorio
+    ```
+3. Instala las dependencias:
+    ```sh
+    npm install
+    ```
+
+## Uso
+Para iniciar el proyecto en modo de desarrollo, ejecuta:
+```sh
+npm run dev
+```
+Esto iniciará un servidor local en `http://localhost:3000/`.
 
 ## Tecnologías y Librerías utilizadas
 - HTML
@@ -27,6 +49,14 @@ Este proyecto tiene la finalidad de simplificar este proceso, permitiendo a los 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vite](https://vitejs.dev/)
 - [NextUI](https://nextui.org/)
+
+## Contribuciones
+Las contribuciones son bienvenidas, y cualquier sugerencia o mejora es más que bienvenida. Para contribuir a este proyecto, sigue estos pasos:
+1. Haz un Fork del proyecto
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Realiza un Commit de tus cambios (`git commit -m 'Agrega nueva funcionalidad'`)
+4. Haz un Push a la rama creada (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
 #### Creado con ❤️ por [Matias Gil](https://github.com/ezemgil).
 

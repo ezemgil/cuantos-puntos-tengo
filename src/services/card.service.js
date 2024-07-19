@@ -1,4 +1,5 @@
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "10", "11", "12"];
+
 const importCardImages = async () => {
     const context = import.meta.glob("../assets/img/cards_separate/*.(png|jpe?g|svg|jpg)");
     const keys = Object.keys(context);
@@ -9,20 +10,27 @@ const importCardImages = async () => {
     }, {});
 };
 
-const cardImages = await importCardImages();
+async function loadCardImages() {
+    const cardImages = await importCardImages();
+    return cardImages;
+}
 
 const suits = [{ suit: "basto" }, { suit: "copa" }, { suit: "espada" }, { suit: "oro" }];
 
-const cards = suits.flatMap((suit) =>
-    numbers.map((numero) => ({
-        id: `${numero}${suit.suit.charAt(0).toLocaleLowerCase()}`,
-        suit: suit.suit,
-        numero,
-        img: cardImages[`${numero}${suit.suit.charAt(0).toLocaleLowerCase()}.jpg`],
-        name: `${numero} de ${suit.suit}`,
-        valor_envido: numero > 7 ? 0 : parseInt(numero),
-    }))
-);
+let cards = [];
+
+loadCardImages().then((cardImages) => {
+    cards = suits.flatMap((suit) =>
+        numbers.map((numero) => ({
+            id: `${numero}${suit.suit.charAt(0).toLocaleLowerCase()}`,
+            suit: suit.suit,
+            numero,
+            img: cardImages[`${numero}${suit.suit.charAt(0).toLocaleLowerCase()}.jpg`],
+            name: `${numero} de ${suit.suit}`,
+            valor_envido: numero > 7 ? 0 : parseInt(numero),
+        }))
+    );
+});
 
 export function getSuits() {
     return suits;
