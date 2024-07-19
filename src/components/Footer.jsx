@@ -21,7 +21,7 @@ export default function Footer() {
             <span>
                 <FontAwesomeIcon icon={faGithub} className="mr-1" />
                 <a
-                    href=""
+                    href="https://github.com/ezemgil/cuantos-puntos-tengo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-zinc-800 dark:text-zinc-100 hover:underline"

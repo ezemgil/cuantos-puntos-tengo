@@ -37,7 +37,7 @@ export default function CardPicker({ isOpen, onOpenChange, changeCard, index, ca
         },
     ];
 
-    const [selectedSuit, setSelectedSuit] = useState("basto");
+    const [selectedSuit, setSelectedSuit] = useState("");
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
