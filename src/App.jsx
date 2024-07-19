@@ -14,8 +14,8 @@ function App() {
     const [cards, setCards] = useState([null, null, null]);
 
     const calculate = () => {
-        setEnvido(calculateEnvido(cards));
         setLastEnvido(envido);
+        setEnvido(calculateEnvido(cards));
     };
 
     const changeCard = (card, index) => {
@@ -27,13 +27,13 @@ function App() {
     };
 
     return (
-        <section className="dark:dark-mesh-gradient light-mesh-gradient text-[#333] dark:text-[#f8f8f8] h-screen">
+        <section className="dark:dark-mesh-gradient light-mesh-gradient text-[#333] dark:text-[#f8f8f8] max-h-screen min-h-screen flex flex-col justify-between">
             <Header />
-            <main className="grid grid-cols-1 grid-rows-3 lg:grid-cols-4 lg:grid-rows-1 h-full">
-                <section className="lg:col-span-3 lg:row-span-1 col-span-1 row-span-2 h-100">
-                    <Input changeCard={changeCard} cards={cards} calculate={calculate} />
+            <main className="grid grid-cols-1 grid-rows-5 lg:grid-cols-4 lg:grid-rows-1 h-full">
+                <section className="lg:col-span-3 lg:row-span-1 col-span-1 row-span-3">
+                    <Input changeCard={changeCard} cards={cards} calculate={calculate} setEnvido={setEnvido} />
                 </section>
-                <section className="lg:col-span-1 lg:row-span-1 row-span-1 col-span-1">
+                <section className="lg:col-span-1 lg:row-span-1 row-span-2 col-span-1">
                     <Output envido={envido} lastEnvido={lastEnvido} />
                 </section>
             </main>

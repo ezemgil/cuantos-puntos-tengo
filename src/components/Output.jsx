@@ -28,7 +28,7 @@ export default function Output({ envido, lastEnvido }) {
     }, [envido, lastEnvido]);
 
     return (
-        <div className="h-full flex flex-col items-center justify-center gap-4 backdrop-blur-md bg-white/30 dark:bg-black/30 p-8">
+        <div className="h-full flex flex-col items-center justify-center gap-4 backdrop-blur-md bg-white/30 dark:bg-black/30 p-8 lg:rounded-l-3xl">
             <div className="flex flex-col items-center justify-center">
                 <h1 className="font-bold lg:text-3xl md:text-2xl text-xl text-gray-400">Resultado</h1>
                 <p className="text-gray-500 lg:text-lg md:text-base text-sm">Tus puntos son:</p>

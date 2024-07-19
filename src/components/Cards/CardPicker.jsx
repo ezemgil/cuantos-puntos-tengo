@@ -82,7 +82,7 @@ export default function CardPicker({ isOpen, onOpenChange, changeCard, index, ca
                             </div>
                         </ModalHeader>
                         <ModalBody>
-                            <div className="grid lg:grid-cols-5 grid-cols-4 gap-2">
+                            <div className=" gap-2 grid lg:grid-cols-5 grid-cols-4">
                                 {cards.map((card) => (
                                     <img
                                         key={card.name}

@@ -4,8 +4,10 @@ import { Button } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 
-export default function Input({ changeCard, cards, calculate }) {
+export default function Input({ changeCard, cards, calculate, setEnvido }) {
     const handleReset = () => {
+        calculate();
+        setEnvido(0);
         changeCard(null, 0);
         changeCard(null, 1);
         changeCard(null, 2);
@@ -21,7 +23,7 @@ export default function Input({ changeCard, cards, calculate }) {
                     <Card key={index} card={card} changeCard={changeCard} selfIndex={index} cardsPicked={cards} />
                 ))}
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-4">
                 <Button size="lg" variant="bordered" isIconOnly onClick={handleReset}>
                     <FontAwesomeIcon icon={faArrowsRotate} />
                 </Button>

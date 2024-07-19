@@ -27,7 +27,7 @@ export default function Header() {
     const animationClasses = isTransitioning ? "opacity-0 scale-75" : "opacity-100 scale-100";
 
     return (
-        <header className="flex justify-between items-center p-4 fixed w-full z-10">
+        <header className="flex justify-between items-center p-4 w-full">
             <div className="flex items-center">
                 <img
                     src={icon}
