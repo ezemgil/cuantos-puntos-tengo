@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 
 export default function ThemeSwitcher() {
     const [theme, setTheme] = useState(null);
@@ -27,8 +27,16 @@ export default function ThemeSwitcher() {
     };
 
     return (
-        <Button isIconOnly onClick={handleThemeSwitch} variant="ghost" radius="full">
-            <FontAwesomeIcon icon={faCircleHalfStroke} />
-        </Button>
+        <Tooltip content={"Cambiar tema"} color="dark" position="bottom">
+            <Button
+                isIconOnly
+                onClick={handleThemeSwitch}
+                variant="light"
+                radius="full"
+                className="border-2 border-[#d8ae7e] dark:border-[#3f2c20]"
+            >
+                <FontAwesomeIcon icon={faCircleHalfStroke} />
+            </Button>
+        </Tooltip>
     );
 }

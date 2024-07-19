@@ -31,7 +31,3 @@ export function getSuits() {
 export function getCardsBySuit(suit) {
     return cards.filter((card) => card.suit === suit);
 }
-
-export function getCard() {
-    return cards[Math.floor(Math.random() * cards.length)];
-}

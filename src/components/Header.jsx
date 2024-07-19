@@ -35,8 +35,12 @@ export default function Header() {
                     className={`${transitionClasses} ${rotateClasses} ${animationClasses} dark:invert lg:w-12 lg:h-12 md:w-10 md:h-10 w-8 h-8 mr-2`}
                 />
                 <div className="flex flex-col">
-                    <h1 className="lg:text-2xl md:text-lg text-base font-bold">¿Cuántos puntos tengo?</h1>
-                    <p className="lg:text-sm md:text-xs text-xs text-gray-500">Calculadora de envido</p>
+                    <h1 className="lg:text-2xl md:text-lg text-base font-bold text-zinc-800 dark:text-zinc-100">
+                        ¿Cuántos puntos tengo?
+                    </h1>
+                    <p className="lg:text-sm md:text-xs text-xs text-zinc-600 dark:text-zinc-400 -mt-1">
+                        Calculadora de envido
+                    </p>
                 </div>
             </div>
             <ThemeSwitcher />

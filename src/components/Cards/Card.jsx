@@ -2,7 +2,7 @@ import React from "react";
 import CardPicker from "./CardPicker";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus, faTrash, faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure, Image } from "@nextui-org/react";
 
 export default function Card({ card, changeCard, selfIndex, cardsPicked }) {
     const colors = {
@@ -17,10 +17,15 @@ export default function Card({ card, changeCard, selfIndex, cardsPicked }) {
     const handleClick = () => {
         onOpen();
     };
+    const handleKeyDown = (e, callback) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            callback();
+        }
+    };
 
-    // Una carta tiene 425px de ancho por 600px de alto
     const responsiveClasses = `
-    w-[96.25px] h-[128.33px]
+        w-[96.25px] h-[128.33px]
         xs:w-[96.25px] xs:h-[128.33px]
         sm:w-[168.75px] sm:h-[225px]
         md:w-[191.67px] md:h-[266.67px]
@@ -30,7 +35,12 @@ export default function Card({ card, changeCard, selfIndex, cardsPicked }) {
 
     return (
         <>
-            <div className="flex items-center justify-center cursor-pointer" onClick={handleClick}>
+            <div
+                className="flex items-center justify-center cursor-pointer"
+                onClick={handleClick}
+                tabIndex={0}
+                onKeyDown={(e) => handleKeyDown(e, () => handleClick(card))}
+            >
                 {card ? (
                     <div className={"relative " + responsiveClasses}>
                         <div className="relative group h-full w-full">
@@ -40,7 +50,7 @@ export default function Card({ card, changeCard, selfIndex, cardsPicked }) {
                                 className="w-full h-full object-fill rounded-lg lg:border-4 border-2"
                                 style={{ borderColor: colors[card?.suit] }}
                             />
-                            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 flex-col items-center justify-center hidden group-hover:flex">
+                            <div className="absolute top-0 left-0 w-full h-full rounded-lg bg-black opacity-50 flex-col items-center justify-center hidden group-hover:flex">
                                 <FontAwesomeIcon
                                     icon={faArrowsRotate}
                                     className="lg:text-5xl md:text-3xl text-2xl text-white"
@@ -54,11 +64,11 @@ export default function Card({ card, changeCard, selfIndex, cardsPicked }) {
                 ) : (
                     <div
                         className={
-                            "lg:border-4 border-2 border-gray-500 rounded-lg flex items-center justify-center text-gray-500 relative " +
+                            "lg:border-4 border-2 border-zinc-500 rounded-lg flex items-center justify-center text-zinc-500 relative " +
                             responsiveClasses
                         }
                     >
-                        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 flex-col items-center justify-center flex">
+                        <div className="absolute top-0 left-0 w-full h-full opacity-75 flex-col items-center justify-center flex bg-zinc-950/25">
                             <FontAwesomeIcon
                                 icon={faCirclePlus}
                                 className="text-white lg:text-5xl md:text-3xl text-2xl"
@@ -77,6 +87,7 @@ export default function Card({ card, changeCard, selfIndex, cardsPicked }) {
                 changeCard={changeCard}
                 index={selfIndex}
                 cardsPicked={cardsPicked}
+                handleKeyDown={handleKeyDown}
             />
         </>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Cards/Card";
-import { Button } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,7 +16,7 @@ export default function Input({ changeCard, cards, calculate, setEnvido }) {
     return (
         <div className="h-full flex flex-col items-center justify-center gap-4">
             <div className="flex flex-col items-center justify-center">
-                <p className="text-lg text-gray-400">Seleccioná tus cartas</p>
+                <p className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">Seleccioná tus cartas</p>
             </div>
             <div className="flex gap-2 mx-3">
                 {cards.map((card, index) => (
@@ -24,14 +24,22 @@ export default function Input({ changeCard, cards, calculate, setEnvido }) {
                 ))}
             </div>
             <div className="flex gap-4 mb-4">
-                <Button size="lg" variant="bordered" isIconOnly onClick={handleReset}>
-                    <FontAwesomeIcon icon={faArrowsRotate} />
-                </Button>
+                <Tooltip content="Reiniciar" placement="bottom" color="default">
+                    <Button
+                        size="lg"
+                        variant="light"
+                        isIconOnly
+                        className="border-2 border-[#271910] dark:border-[#f8c794] hover:bg-white dark:hover:bg-[#d8ae7e] dark:hover:bg-opacity-10"
+                        onClick={handleReset}
+                    >
+                        <FontAwesomeIcon icon={faArrowsRotate} />
+                    </Button>
+                </Tooltip>
                 <Button
                     size="lg"
                     variant="bordered"
                     onClick={calculate}
-                    className="dark:border-[#3f2c20] dark:text-[#f5e4b8] dark:hover:bg-[#3f2c20] dark:hover:text-[#f5e4b8]"
+                    className="border-2 border-[#3f2c20] dark:border-[#d8ae7e] font-semibold"
                 >
                     Calcular envido
                 </Button>

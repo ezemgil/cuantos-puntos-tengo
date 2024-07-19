@@ -25,11 +25,28 @@
         --light-color-2: #ffe0b5;
         --light-color-3: #f8c794;
         --light-color-4: #d8ae7e;
-        /* 
-        --light-color-1: #03aed2;
-        --light-color-2: #68d2e8;
-        --light-color-3: #fdde55;
-        --light-color-4: #feefad; */
+    }
+
+    .fade-enter {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    }
+
+    .fade-enter-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .fade-exit {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    }
+
+    .fade-exit-active {
+        opacity: 0;
+        visibility: hidden;
     }
 
     .dark-mesh-gradient {
